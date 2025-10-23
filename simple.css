@@ -4,6 +4,9 @@
   /* for vscode testing only, remove all except serif and sans-serif when actually using */
   --serif: "Libre Baskerville", serif;
   --sans-serif: "Montserrat", sans-serif;
+  --accent1: 200, 100, 120;
+  --accent2: 120, 180, 200;
+  --accent3: 240, 180, 120;
 }
 
 .content-wrapper {
