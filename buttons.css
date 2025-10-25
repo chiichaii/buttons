@@ -15,7 +15,7 @@ body {
   color: var(--text);
   transition: background 0.3s, color 0.3s;
   font-family: var(--sans-serif);
-  font-size: 13px;
+  font-size: inherit;
   line-height: 20px;
 }
 
@@ -27,7 +27,6 @@ body.serif {
 body.sans-serif {
   font-family: var(--sans-serif);
   font-size: 13px;
-  font-weight: 100;
 }
 
 body.serif .btn {
