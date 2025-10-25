@@ -6,17 +6,43 @@
   --accent2: 120, 180, 200;
   --accent3: 240, 180, 120;
   --bor: rgba(0, 0, 0, 0.2);
-  --serif: "Libre Baskerville", serif;
+  --serif: "Cormorant", serif;
   --sans-serif: "Montserrat", sans-serif;
 }
 
 /* base bg + text colors */
 body {
-  background: #fff;
   color: var(--text);
   transition: background 0.3s, color 0.3s;
   font-family: var(--sans-serif);
+  font-size: 13px;
   line-height: 20px;
+}
+
+body.serif {
+  font-family: var(--serif);
+  font-size: 14px;
+}
+
+body.sans-serif {
+  font-family: var(--sans-serif);
+  font-size: 13px;
+  font-weight: 300;
+}
+
+body.serif .btn {
+  font-size: 14px;
+}
+
+body.serif .btn-accent1::after,
+body.serif .btn-accent2::after,
+body.serif .btn-accent3::after,
+body.serif .btn-gradient::after {
+  font-size: 14px;
+}
+
+body.sans-serif .btn {
+  font-size: 12px;
 }
 
 /* Dark mode background */
@@ -26,8 +52,9 @@ html[color-mode="dark"] body {
 }
 
 .btn {
-  font-family: var(--sans-serif);
+  font-family: inherit;
   font-size: 11px;
+  font-weight: inherit;
   padding: 5px 10px;
   margin: 0 8px 8px 0;
   border: 1px solid var(--bor);
@@ -87,6 +114,7 @@ html[color-mode="dark"] body {
   transform: translateX(-50%) scale(0.9);
   background: #fff;
   color: var(--text);
+  font-family: inherit;
   font-size: 10px;
   padding: 4px 8px;
   border-radius: 6px;
