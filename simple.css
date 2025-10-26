@@ -70,14 +70,6 @@
   border-radius: var(--border-radius);
 }
 
-.border {
-  border: 1px solid #000;
-}
-
-.border.rounded {
-  border-radius: 8px;
-}
-
 .hl {
   border-radius: 8px;
   padding: 4px 8px 2px 8px;
