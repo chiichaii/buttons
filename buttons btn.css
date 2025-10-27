@@ -1,0 +1,444 @@
+:root {
+  /* for vscode testing only, remove all except serif and sans-serif when actually using */
+  --text: #000;
+  --text-invert: #fff;
+  --accent1: 200, 100, 120;
+  --accent2: 120, 180, 200;
+  --accent3: 240, 180, 120;
+  --bor: rgba(0, 0, 0, 0.2);
+  --serif: "Cormorant", serif;
+  --sans-serif: "Montserrat", sans-serif;
+}
+
+/* base bg + text colors */
+body {
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+  font-family: var(--sans-serif);
+  font-size: inherit;
+  line-height: 20px;
+}
+
+body.serif {
+  font-family: var(--serif);
+  font-size: 14px;
+}
+
+body.sans-serif {
+  font-family: var(--sans-serif);
+  font-size: 13px;
+}
+
+body.serif .btn {
+  font-size: 14px;
+}
+
+body.serif .btn-accent1::after,
+body.serif .btn-accent2::after,
+body.serif .btn-accent3::after,
+body.serif .btn-gradient::after {
+  font-size: 14px;
+}
+
+body.sans-serif .btn {
+  font-size: 12px;
+}
+
+/* Dark mode background */
+html[color-mode="dark"] body {
+  background: #111;
+  color: var(--text);
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: inherit;
+  padding: 5px 10px;
+  margin: 0 8px 8px 0;
+  border: 1px solid var(--bor);
+  border-radius: 9px;
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 0 0 var(--bor);
+  display: inline-block;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.btn:hover {
+  filter: brightness(1.2);
+  transform: translateY(0);
+  box-shadow: 1px 1px 0 0 var(--bor);
+}
+
+.btn-accent1 {
+  background: rgba(var(--accent1), 0.4);
+  color: var(--text);
+}
+.btn-accent2 {
+  background: rgba(var(--accent2), 0.4);
+  color: var(--text);
+}
+.btn-accent3 {
+  background: rgba(var(--accent3), 0.4);
+  color: var(--text);
+}
+.btn-gradient {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--accent1), 0.4) 0%,
+    rgb(var(--accent1), 0.4) 30%,
+    rgb(var(--accent2), 0.4) 40%,
+    rgb(var(--accent2), 0.4) 70%,
+    rgb(var(--accent3), 0.4) 80%,
+    rgb(var(--accent3), 0.4) 100%
+  );
+}
+
+.btn-transparent {
+  background: transparent;
+  color: var(--text);
+}
+
+.btn-accent1::after,
+.btn-accent2::after,
+.btn-accent3::after,
+.btn-gradient::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  background: #fff;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.btn-accent1::after {
+  border: 1px solid rgba(var(--accent1), 0.6);
+}
+.btn-accent2::after {
+  border: 1px solid rgba(var(--accent2), 0.6);
+}
+.btn-accent3::after {
+  border: 1px solid rgba(var(--accent3), 0.6);
+}
+.btn-gradient::after {
+  border: 1px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(
+        135deg,
+        rgba(var(--accent1), 0.6),
+        rgba(var(--accent2), 0.6),
+        rgba(var(--accent3), 0.4)
+      )
+      border-box;
+  border-radius: 6px;
+  border: 1px solid transparent;
+}
+
+.btn-accent1:hover::after,
+.btn-accent2:hover::after,
+.btn-accent3:hover::after,
+.btn-gradient:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+@keyframes gentle-float {
+  0%,
+  100% {
+    transform: translateY(0);
+    box-shadow: 2px 2px 0 0 var(--bor),
+      0 0 6px 3px rgba(var(--accent-glow), 0.4);
+  }
+  50% {
+    transform: translateY(-4px);
+    box-shadow: 1px 1px 0 0 var(--bor),
+      0 0 6px 3px rgba(var(--accent-glow), 0.4);
+  }
+}
+
+.float {
+  animation: gentle-float 4s ease-in-out infinite;
+}
+
+.btn-accent1.float {
+  --accent-glow: var(--accent1);
+}
+.btn-accent2.float {
+  --accent-glow: var(--accent2);
+}
+.btn-accent3.float {
+  --accent-glow: var(--accent3);
+}
+.btn-gradient.float {
+  --accent-glow: 200, 150, 220;
+}
+
+.btn.float {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background-color 0.25s ease;
+  will-change: transform, box-shadow, background-color;
+}
+
+.btn.float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  filter: brightness(1.15);
+}
+
+/* light and dark mode */
+
+html[color-mode="dark"] {
+  --text: #fff;
+  --text-invert: #000;
+  --bor: rgba(255, 255, 255, 0.2);
+}
+
+html[color-mode="dark"] .btn {
+  border-color: var(--bor);
+  box-shadow: 2px 2px 0 0 var(--bor);
+  color: var(--text);
+}
+
+html[color-mode="dark"] .btn:hover {
+  filter: brightness(1.05);
+  box-shadow: 1px 1px 0 0 var(--bor);
+}
+
+html[color-mode="dark"] .btn-accent1 {
+  background: rgba(var(--accent1), 0.5);
+}
+html[color-mode="dark"] .btn-accent2 {
+  background: rgba(var(--accent2), 0.5);
+}
+html[color-mode="dark"] .btn-accent3 {
+  background: rgba(var(--accent3), 0.5);
+}
+html[color-mode="dark"] .btn-gradient {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--accent1), 0.5) 0%,
+    rgb(var(--accent1), 0.5) 30%,
+    rgb(var(--accent2), 0.5) 40%,
+    rgb(var(--accent2), 0.5) 70%,
+    rgb(var(--accent3), 0.5) 80%,
+    rgb(var(--accent3), 0.5) 100%
+  );
+}
+
+html[color-mode="dark"] .btn::after {
+  background: #222;
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+html[color-mode="dark"] .float {
+  animation: gentle-float-dark 4s ease-in-out infinite;
+}
+
+@keyframes gentle-float-dark {
+  0%,
+  100% {
+    transform: translateY(0);
+    box-shadow: 2px 2px 0 0 var(--bor),
+      0 0 6px 3px rgba(var(--accent-glow), 0.5);
+  }
+  50% {
+    transform: translateY(-4px);
+    box-shadow: 1px 1px 0 0 var(--bor),
+      0 0 6px 3px rgba(var(--accent-glow), 0.5);
+  }
+}
+
+/* ---------- PAGE LAYOUT ---------- */
+.content-wrapper {
+  display: block;
+  margin: 0 auto;
+  padding: 10% 3% 0% 3%;
+}
+
+.text-container {
+  position: relative;
+  margin-bottom: 40px;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 1.6;
+  display: inline-block;
+  text-align: justify;
+  width: 60%;
+  max-width: 800px;
+  padding: 60px 80px 50px 80px;
+  border: 1px solid var(--bor);
+  white-space: pre-line;
+}
+
+.text-container br {
+  display: none;
+}
+
+/* ---------- BUTTON GROUPS ---------- */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 0;
+  justify-content: center;
+  margin: -35px;
+}
+
+/* ---------- FLOATING META (TW/PT) ---------- */
+.floating-meta {
+  position: absolute;
+  top: -23px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px; /* controls distance from edges */
+  z-index: 5;
+  overflow: visible;
+}
+
+/* ---------- PARTNER TAG & TW BUTTON ---------- */
+.partner-tag-wrapper {
+  position: relative;
+  display: inline-block;
+  z-index: 10;
+}
+
+.partner-tag-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--text-bg, #fff);
+  border-radius: 8px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.partner-tag-wrapper .btn::after {
+  display: none !important;
+}
+
+.partner-tag-wrapper .btn {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin: 0;
+  border-radius: 8px;
+  padding: 4px 14px;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  overflow: visible;
+  transition: filter 0.22s ease, background 0.22s ease;
+}
+
+.trigger-warning-wrapper {
+  position: relative;
+  display: inline-block;
+  z-index: 10;
+}
+
+.trigger-warning-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--text-bg, #fff);
+  border-radius: 8px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.trigger-warning-wrapper .btn {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin: 0;
+  border-radius: 8px;
+  padding: 4px 14px;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  overflow: visible;
+  transition: filter 0.22s ease, background 0.22s ease;
+}
+
+.partner-tag-wrapper,
+.trigger-warning-wrapper {
+  position: relative;
+  display: inline-block;
+  z-index: 10;
+}
+
+.partner-tag-wrapper::before,
+.trigger-warning-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--text-bg, #fff);
+  border-radius: 8px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ---------- FLOATING ANIMATION FOR TW/PT ---------- */
+@keyframes tw-pt-float {
+  0%,
+  100% {
+    transform: translateY(-8px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.floating-meta .btn.float {
+  animation: tw-pt-float 2s ease-in-out infinite;
+  box-shadow: none !important; /* remove shadows from TW/PT buttons */
+}
+
+/* ---------- HOVER BRIGHTNESS ---------- */
+.trigger-warning-wrapper .btn:hover,
+.partner-tag-wrapper .btn:hover {
+  filter: brightness(1.2);
+}
+
+/* ---------- DARK MODE ---------- */
+html[color-mode="dark"] .trigger-warning-wrapper,
+html[color-mode="dark"] .partner-tag-wrapper {
+  --text-bg: #111;
+}
+
+body[color-mode="dark"] .trigger-warning-wrapper .btn,
+body[color-mode="dark"] .partner-tag-wrapper .btn {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+body[color-mode="dark"] .trigger-warning-wrapper .btn::after {
+  background: #222;
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(var(--btn-accent, var(--accent2)), 0.5);
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
