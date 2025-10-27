@@ -114,7 +114,7 @@ html[color-mode="dark"] body {
   background: #fff;
   color: var(--text);
   font-family: inherit;
-  font-size: 10px;
+  font-size: 12px;
   padding: 4px 8px;
   border-radius: 6px;
   white-space: nowrap;
