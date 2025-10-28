@@ -175,7 +175,7 @@ html[color-mode="dark"] body {
 }
 
 .float {
-  animation: gentle-float 8s ease-in-out infinite;
+  animation: gentle-float 4s ease-in-out infinite;
 }
 
 .btn-accent1.float {
@@ -419,7 +419,7 @@ html[color-mode="dark"] .float {
 }
 
 .floating-meta .btn.float {
-  animation: tw-pt-float 2s ease-in-out infinite;
+  animation: tw-pt-float 4s ease-in-out infinite;
   box-shadow: none !important; /* remove shadows from TW/PT buttons */
 }
 
