@@ -208,6 +208,34 @@ html[color-mode="dark"] body {
   filter: brightness(1.15);
 }
 
+/* no border btn */
+.btn.noborder {
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  transition: none;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+.btn.noborder img {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+.btn.noborder:hover {
+  filter: none !important; /* remove brightness */
+  transform: none !important; /* remove translate/shift */
+  box-shadow: none !important; /* remove shadow */
+}
+
 /* light and dark mode */
 
 html[color-mode="dark"] {
@@ -359,6 +387,12 @@ html[color-mode="dark"] .float {
   font-weight: inherit;
   overflow: visible;
   transition: filter 0.22s ease, background 0.22s ease;
+}
+
+.partner-tag-wrapper .btn.noborder {
+  position: absolute;
+  top: 0px;
+  left: -35px;
 }
 
 .trigger-warning-wrapper {
