@@ -61,7 +61,8 @@ html[color-mode="dark"] body {
   transform: translateY(-2px);
   box-shadow: 2px 2px 0 0 var(--bor);
   display: inline-block;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
   transition: all 0.15s ease;
   cursor: pointer;
   position: relative;
@@ -279,7 +280,7 @@ html[color-mode="dark"] .float {
   font-size: inherit;
   font-weight: inherit;
   line-height: 1.6;
-  display: inline-block;
+  display: block;
   text-align: justify;
   width: 60%;
   max-width: 800px;
