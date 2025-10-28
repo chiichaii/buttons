@@ -1,5 +1,5 @@
 :root {
-  /* for vscode testing only, remove all except serif and sans-serif when actually using */
+  /* ---------- for vscode testing only, remove all except serif and sans-serif when actually using ---------- */
   --text: #000;
   --text-invert: #fff;
   --accent1: 200, 100, 120;
@@ -10,7 +10,7 @@
   --sans-serif: "Montserrat", sans-serif;
 }
 
-/* base bg + text colors */
+/* ---------- base bg + text colors ---------- */
 body {
   color: var(--text);
   transition: background 0.3s, color 0.3s;
@@ -44,7 +44,7 @@ body.sans-serif .btn {
   font-size: 12px;
 }
 
-/* Dark mode background */
+/* ---------- Dark mode background ---------- */
 html[color-mode="dark"] body {
   background: #111;
   color: var(--text);
@@ -226,17 +226,17 @@ html[color-mode="dark"] body {
   transition: none !important;
 }
 .btn.noborder img {
-  height: 30px;
+  height: 50px;
   width: auto;
   display: block;
 }
 .btn.noborder:hover {
-  filter: none !important; /* remove brightness */
-  transform: none !important; /* remove translate/shift */
-  box-shadow: none !important; /* remove shadow */
+  filter: none !important;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
-/* light and dark mode */
+/* ---------- light and dark mode ---------- */
 
 html[color-mode="dark"] {
   --text: #fff;
@@ -347,7 +347,7 @@ html[color-mode="dark"] .float {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 60px; /* controls distance from edges */
+  padding: 0 60px;
   z-index: 5;
   overflow: visible;
 }
@@ -391,8 +391,8 @@ html[color-mode="dark"] .float {
 
 .partner-tag-wrapper .btn.noborder {
   position: absolute;
-  top: 0px;
-  left: -35px;
+  top: -18px;
+  left: -50px;
 }
 
 .trigger-warning-wrapper {
@@ -458,7 +458,7 @@ html[color-mode="dark"] .float {
 
 .floating-meta .btn.float {
   animation: tw-pt-float 4s ease-in-out infinite;
-  box-shadow: none !important; /* remove shadows from TW/PT buttons */
+  box-shadow: none !important;
 }
 
 /* ---------- HOVER BRIGHTNESS ---------- */

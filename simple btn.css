@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  /* for vscode testing only, remove all except serif and sans-serif when actually using */
+  /* ---------- for vscode testing only, remove all except serif and sans-serif when actually using ---------- */
   --serif: "Cormorant", serif;
   --sans-serif: "Montserrat", sans-serif;
   --accent1: 200, 100, 120;
@@ -11,10 +11,10 @@
 
 .content-wrapper {
   display: flex;
-  justify-content: center; /* horizontal centering */
-  align-items: flex-start; /* optional, so text aligns at top */
+  justify-content: center;
+  align-items: flex-start;
   width: 100%;
-  padding: 0; /* remove horizontal padding */
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -52,19 +52,29 @@
   text-align: justify;
   width: 60%;
   max-width: 800px;
-  padding: 60px 40px 50px 40px; /* reduced padding so it doesn’t push off-center */
+  padding: 60px 40px 50px 40px;
   border: 1px solid var(--bor);
   white-space: pre-line;
-  margin: 0 auto; /* ensures the block is centered inside the wrapper */
+  margin: 0 auto;
 }
+
 .text-container br {
   display: none;
 }
+
 .text-container .btn-wrapper {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 14px;
+}
+
+.text-container a {
+  color: inherit;
+}
+
+.text-container a:hover {
+  color: inherit;
 }
 
 .sans-serif {
@@ -89,13 +99,13 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: currentColor; /* replaced below per variant */
+  background: currentColor;
   opacity: 1;
   transition: opacity 0.4s ease, filter 0.4s ease;
   z-index: -1;
 }
 
-/* colors */
+/* ---------- colors ---------- */
 .one::before {
   background: rgba(var(--accent1), 0.3);
 }
@@ -106,9 +116,9 @@
   background: rgba(var(--accent3), 0.3);
 }
 
-/* hover effect only affects the background */
+/* ---------- hover effect only affects the background ---------- */
 .hl:hover::before {
-  opacity: 0.7; /* adjust to taste */
+  opacity: 0.7;
   filter: saturate(0.7);
 }
 
