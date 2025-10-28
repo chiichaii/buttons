@@ -21,7 +21,7 @@ body {
 
 body.serif {
   font-family: var(--serif);
-  font-size: 14px;
+  font-size: 15px;
 }
 
 body.sans-serif {
