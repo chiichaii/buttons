@@ -1,5 +1,4 @@
 :root {
-  /* ---------- for vscode testing only, remove all except serif and sans-serif when actually using ---------- */
   --text: #000;
   --text-invert: #fff;
   --accent1: 200, 100, 120;
@@ -10,7 +9,9 @@
   --sans-serif: "Montserrat", sans-serif;
 }
 
-/* ---------- base bg + text colors ---------- */
+/* ====================
+BODY
+====================*/
 body {
   color: var(--text);
   transition: background 0.3s, color 0.3s;
@@ -23,7 +24,6 @@ body.serif {
   font-family: var(--serif);
   font-size: 15px;
 }
-
 body.sans-serif {
   font-family: var(--sans-serif);
   font-size: 13px;
@@ -32,7 +32,6 @@ body.sans-serif {
 body.serif .btn {
   font-size: 14px;
 }
-
 body.serif .btn-accent1,
 body.serif .btn-accent2::after,
 body.serif .btn-accent3::after,
@@ -44,12 +43,42 @@ body.sans-serif .btn {
   font-size: 12px;
 }
 
-/* ---------- Dark mode background ---------- */
+/* body dark mode */
 html[color-mode="dark"] body {
   background: #111;
   color: var(--text);
 }
 
+/* ====================
+TEXT CONTAINER
+==================== */
+.content-wrapper {
+  display: block;
+  margin: 0 auto;
+  padding: 10% 3% 0% 3%;
+}
+.text-container {
+  position: relative;
+  margin-bottom: 40px;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 1.6;
+  display: block;
+  text-align: justify;
+  width: 60%;
+  max-width: 800px;
+  padding: 60px 80px 50px 80px;
+  border: 1px solid var(--bor);
+  white-space: pre-line;
+}
+.text-container br {
+  display: none;
+}
+
+/* ====================
+BUTTON
+==================== */
 .btn {
   font-family: inherit;
   font-size: 11px;
@@ -74,17 +103,23 @@ html[color-mode="dark"] body {
   box-shadow: 1px 1px 0 0 var(--bor);
 }
 
+/* button variants */
+.btn-accent1,
+.btn-accent2,
+.btn-accent3,
+.btn-gradient,
+.btn-transparent {
+  color: var(--text);
+}
+
 .btn-accent1 {
   background: rgba(var(--accent1), 0.4);
-  color: var(--text);
 }
 .btn-accent2 {
   background: rgba(var(--accent2), 0.4);
-  color: var(--text);
 }
 .btn-accent3 {
   background: rgba(var(--accent3), 0.4);
-  color: var(--text);
 }
 .btn-gradient {
   background: linear-gradient(
@@ -97,12 +132,11 @@ html[color-mode="dark"] body {
     rgb(var(--accent3), 0.4) 100%
   );
 }
-
 .btn-transparent {
   background: transparent;
-  color: var(--text);
 }
 
+/* button after */
 .btn-accent1::after,
 .btn-accent2::after,
 .btn-accent3::after,
@@ -112,8 +146,6 @@ html[color-mode="dark"] body {
   bottom: 120%;
   left: 50%;
   transform: translateX(-50%) scale(0.9);
-  background: #fff;
-  color: var(--text);
   font-family: inherit;
   font-size: 12px;
   padding: 4px 8px;
@@ -125,23 +157,30 @@ html[color-mode="dark"] body {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease, transform 0.4s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
 
 .btn-accent1::after {
+  background: #fff;
+  color: var(--text);
   border: 1px solid
     color-mix(in srgb, rgb(var(--accent1)) 30%, rgb(200, 200, 200));
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .btn-accent2::after {
+  background: #fff;
+  color: var(--text);
   border: 1px solid
     color-mix(in srgb, rgb(var(--accent2)) 30%, rgb(200, 200, 200));
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .btn-accent3::after {
+  background: #fff;
+  color: var(--text);
   border: 1px solid
     color-mix(in srgb, rgb(var(--accent3)) 30%, rgb(200, 200, 200));
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 .btn-gradient::after {
   border: 1px solid transparent;
   background: linear-gradient(white, white) padding-box,
@@ -153,9 +192,9 @@ html[color-mode="dark"] body {
       )
       border-box;
   border-radius: 6px;
-  border: 1px solid transparent;
 }
 
+/* button hover */
 .btn-accent1:hover::after,
 .btn-accent2:hover::after,
 .btn-accent3:hover::after,
@@ -164,6 +203,9 @@ html[color-mode="dark"] body {
   transform: translateX(-50%) scale(1);
 }
 
+/* ====================
+BUTTON FLOAT
+==================== */
 @keyframes gentle-float {
   0%,
   100% {
@@ -201,29 +243,27 @@ html[color-mode="dark"] body {
     background-color 0.25s ease;
   will-change: transform, box-shadow, background-color;
 }
-
 .btn.float:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
   filter: brightness(1.15);
 }
 
-/* no border btn */
+/* ====================
+BUTTON NO BORDER 
+==================== */
 .btn.noborder {
   border: none;
   outline: none;
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   vertical-align: middle;
-  transition: none;
   box-shadow: none !important;
   filter: none !important;
   transform: none !important;
-  transition: none !important;
 }
 .btn.noborder img {
   height: 50px;
@@ -236,8 +276,9 @@ html[color-mode="dark"] body {
   box-shadow: none !important;
 }
 
-/* ---------- light and dark mode ---------- */
-
+/* ====================
+DARK MODE BUTTONS
+==================== */
 html[color-mode="dark"] {
   --text: #fff;
   --text-invert: #000;
@@ -249,12 +290,10 @@ html[color-mode="dark"] .btn {
   box-shadow: 2px 2px 0 0 var(--bor);
   color: var(--text);
 }
-
 html[color-mode="dark"] .btn:hover {
   filter: brightness(1.05);
   box-shadow: 1px 1px 0 0 var(--bor);
 }
-
 html[color-mode="dark"] .btn-accent1 {
   background: rgba(var(--accent1), 0.5);
 }
@@ -275,18 +314,15 @@ html[color-mode="dark"] .btn-gradient {
     rgb(var(--accent3), 0.5) 100%
   );
 }
-
 html[color-mode="dark"] .btn::after {
   background: #222;
   color: var(--text);
   border-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
 }
-
 html[color-mode="dark"] .float {
   animation: gentle-float-dark 4s ease-in-out infinite;
 }
-
 @keyframes gentle-float-dark {
   0%,
   100% {
@@ -301,34 +337,9 @@ html[color-mode="dark"] .float {
   }
 }
 
-/* ---------- PAGE LAYOUT ---------- */
-.content-wrapper {
-  display: block;
-  margin: 0 auto;
-  padding: 10% 3% 0% 3%;
-}
-
-.text-container {
-  position: relative;
-  margin-bottom: 40px;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: 1.6;
-  display: block;
-  text-align: justify;
-  width: 60%;
-  max-width: 800px;
-  padding: 60px 80px 50px 80px;
-  border: 1px solid var(--bor);
-  white-space: pre-line;
-}
-
-.text-container br {
-  display: none;
-}
-
-/* ---------- BUTTON GROUPS ---------- */
+/* ====================
+ BUTTON GROUPING 
+ ==================== */
 .button-group {
   display: flex;
   flex-wrap: wrap;
@@ -338,69 +349,16 @@ html[color-mode="dark"] .float {
   margin: -35px;
 }
 
-/* ---------- FLOATING META (TW/PT) ---------- */
-.floating-meta {
-  position: absolute;
-  top: -23px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 60px;
-  z-index: 5;
-  overflow: visible;
-}
-
-/* ---------- PARTNER TAG & TW BUTTON ---------- */
-.partner-tag-wrapper {
-  position: relative;
-  display: inline-block;
-  z-index: 10;
-}
-
-.partner-tag-wrapper::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--text-bg, #fff);
-  border-radius: 8px;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.partner-tag-wrapper .btn::after {
-  display: none !important;
-}
-
-.partner-tag-wrapper .btn {
-  position: relative;
-  z-index: 1;
-  display: inline-block;
-  margin: 0;
-  border-radius: 8px;
-  padding: 4px 14px;
-  color: rgba(0, 0, 0, 0.85);
-  cursor: pointer;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  overflow: visible;
-  transition: filter 0.22s ease, background 0.22s ease;
-}
-
-.partner-tag-wrapper .btn.noborder {
-  position: absolute;
-  top: -18px;
-  left: -50px;
-}
-
+/* ====================
+TW/PT BUTTONS
+==================== */
+.partner-tag-wrapper,
 .trigger-warning-wrapper {
   position: relative;
   display: inline-block;
   z-index: 10;
 }
-
+.partner-tag-wrapper::before,
 .trigger-warning-wrapper::before {
   content: "";
   position: absolute;
@@ -410,7 +368,7 @@ html[color-mode="dark"] .float {
   z-index: 0;
   pointer-events: none;
 }
-
+.partner-tag-wrapper .btn,
 .trigger-warning-wrapper .btn {
   position: relative;
   z-index: 1;
@@ -426,26 +384,34 @@ html[color-mode="dark"] .float {
   overflow: visible;
   transition: filter 0.22s ease, background 0.22s ease;
 }
-
-.partner-tag-wrapper,
-.trigger-warning-wrapper {
-  position: relative;
-  display: inline-block;
-  z-index: 10;
-}
-
-.partner-tag-wrapper::before,
-.trigger-warning-wrapper::before {
-  content: "";
+.partner-tag-wrapper .btn.noborder {
   position: absolute;
-  inset: 0;
-  background: var(--text-bg, #fff);
-  border-radius: 8px;
-  z-index: 0;
-  pointer-events: none;
+  top: -18px;
+  left: -50px;
+}
+.partner-tag-wrapper .btn::after {
+  display: none !important;
+}
+.trigger-warning-wrapper .btn:hover,
+.partner-tag-wrapper .btn:hover {
+  filter: brightness(1.2);
 }
 
-/* ---------- FLOATING ANIMATION FOR TW/PT ---------- */
+/* tw/pt floating */
+.floating-meta {
+  position: absolute;
+  top: -23px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  z-index: 5;
+  overflow: visible;
+}
+
+/* tw/pt floating animation */
 @keyframes tw-pt-float {
   0%,
   100% {
@@ -455,29 +421,20 @@ html[color-mode="dark"] .float {
     transform: translateY(-12px);
   }
 }
-
 .floating-meta .btn.float {
   animation: tw-pt-float 4s ease-in-out infinite;
   box-shadow: none !important;
 }
 
-/* ---------- HOVER BRIGHTNESS ---------- */
-.trigger-warning-wrapper .btn:hover,
-.partner-tag-wrapper .btn:hover {
-  filter: brightness(1.2);
-}
-
-/* ---------- DARK MODE ---------- */
+/* tw/pt button dark mode */
 html[color-mode="dark"] .trigger-warning-wrapper,
 html[color-mode="dark"] .partner-tag-wrapper {
   --text-bg: #111;
 }
-
 body[color-mode="dark"] .trigger-warning-wrapper .btn,
 body[color-mode="dark"] .partner-tag-wrapper .btn {
   color: rgba(255, 255, 255, 0.85);
 }
-
 body[color-mode="dark"] .trigger-warning-wrapper .btn::after {
   background: #222;
   color: rgba(255, 255, 255, 0.9);
@@ -485,8 +442,9 @@ body[color-mode="dark"] .trigger-warning-wrapper .btn::after {
   box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
 }
 
-/* ---------- CUSTOM BLOCKQUOTE ---------- */
-
+/* ====================
+CUSTOM BLOCKQUOTE
+==================== */
 .custom-bq {
   display: block;
   padding: 0 10% 0 5%;
