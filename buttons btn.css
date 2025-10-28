@@ -33,7 +33,7 @@ body.serif .btn {
   font-size: 14px;
 }
 
-body.serif .btn-accent1::after,
+body.serif .btn-accent1,
 body.serif .btn-accent2::after,
 body.serif .btn-accent3::after,
 body.serif .btn-gradient::after {
@@ -130,14 +130,18 @@ html[color-mode="dark"] body {
 }
 
 .btn-accent1::after {
-  border: 1px solid rgba(var(--accent1), 0.6);
+  border: 1px solid
+    color-mix(in srgb, rgb(var(--accent1)) 30%, rgb(200, 200, 200));
 }
 .btn-accent2::after {
-  border: 1px solid rgba(var(--accent2), 0.6);
+  border: 1px solid
+    color-mix(in srgb, rgb(var(--accent2)) 30%, rgb(200, 200, 200));
 }
 .btn-accent3::after {
-  border: 1px solid rgba(var(--accent3), 0.6);
+  border: 1px solid
+    color-mix(in srgb, rgb(var(--accent3)) 30%, rgb(200, 200, 200));
 }
+
 .btn-gradient::after {
   border: 1px solid transparent;
   background: linear-gradient(white, white) padding-box,
