@@ -175,7 +175,7 @@ html[color-mode="dark"] body {
 }
 
 .float {
-  animation: gentle-float 4s ease-in-out infinite;
+  animation: gentle-float 8s ease-in-out infinite;
 }
 
 .btn-accent1.float {
