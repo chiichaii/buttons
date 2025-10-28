@@ -118,7 +118,10 @@ html[color-mode="dark"] body {
   font-size: 12px;
   padding: 4px 8px;
   border-radius: 6px;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
+  max-width: 40vw;
+  width: max-content;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease, transform 0.4s ease;
@@ -442,4 +445,25 @@ body[color-mode="dark"] .trigger-warning-wrapper .btn::after {
   color: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(var(--btn-accent, var(--accent2)), 0.5);
   box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- CUSTOM BLOCKQUOTE ---------- */
+
+.custom-bq {
+  display: block;
+  padding: 0 10% 0 5%;
+  margin: 1em 0 1em 5%;
+  line-height: 1.6;
+  word-break: break-word;
+  background: transparent;
+  border-left: 1px solid rgb(var(--accent2), 0.5);
+}
+.custom-bq[data-line="accent1"] {
+  border-left-color: rgb(var(--accent1), 0.5);
+}
+.custom-bq[data-line="accent2"] {
+  border-left-color: rgb(var(--accent2), 0.5);
+}
+.custom-bq[data-line="accent3"] {
+  border-left-color: rgb(var(--accent3), 0.5);
 }
