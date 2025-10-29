@@ -266,7 +266,7 @@ BUTTON NO BORDER
   transform: none !important;
 }
 .btn.noborder img {
-  height: 50px;
+  height: 70px;
   width: auto;
   display: block;
 }
@@ -386,7 +386,7 @@ TW/PT BUTTONS
 }
 .partner-tag-wrapper .btn.noborder {
   position: absolute;
-  top: -18px;
+  top: -30px;
   left: -50px;
 }
 .partner-tag-wrapper .btn::after {
