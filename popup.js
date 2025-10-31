@@ -1,11 +1,20 @@
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbzMrUfAg4BB0rii_syMfWOg58383bgDUaT8Ixr9VO-rHcbuLYr6clo42BcY1TcJp5Gf/exec";
+
 document.addEventListener("DOMContentLoaded", () => {
   let activePopup = null;
 
+  // Attach click listener to every image popup button
   document.querySelectorAll(".img-popup-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const imgSrc = btn.getAttribute("data-img");
       const accent = btn.getAttribute("data-accent");
+      const name = btn.textContent.trim();
 
+      // Log click to Google Sheet
+      logClick(name);
+
+      // Handle popup visibility
       if (activePopup && activePopup.dataset.img === imgSrc) {
         activePopup.classList.remove("show");
         setTimeout(() => {
@@ -28,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Function to create and show the popup
   function openPopup(btn, imgSrc, accent) {
     const popup = document.createElement("div");
     popup.className = "image-popup";
@@ -40,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
-    // border color from accent variable
+    // Border color using CSS accent variable
     const accentColor = getComputedStyle(document.documentElement)
       .getPropertyValue(`--${accent}`)
       .trim();
@@ -53,8 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(() => {
       const btnRect = btn.getBoundingClientRect();
       const popupRect = popup.getBoundingClientRect();
-
       const offset = 30;
+
+      // Position popup slightly above the button
       const top = window.scrollY + btnRect.top - popupRect.height - offset;
       const left =
         window.scrollX + btnRect.left + btnRect.width / 2 - popupRect.width / 2;
@@ -66,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       activePopup = popup;
     });
 
+    // Clicking the popup closes it
     popup.addEventListener("click", () => {
       popup.classList.remove("show");
       setTimeout(() => {
@@ -73,5 +85,24 @@ document.addEventListener("DOMContentLoaded", () => {
         activePopup = null;
       }, 600);
     });
+  }
+
+  // Function to log clicks to Google Sheets
+  function logClick(name) {
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({
+        buttonName: name,
+        timestamp: new Date().toISOString(),
+      }),
+    })
+      .then(() => {
+        console.log(`✅ Logged click for "${name}"`);
+      })
+      .catch((err) => console.error("⚠️ Logging failed:", err));
   }
 });
