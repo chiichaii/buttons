@@ -1,20 +1,17 @@
 const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzMrUfAg4BB0rii_syMfWOg58383bgDUaT8Ixr9VO-rHcbuLYr6clo42BcY1TcJp5Gf/exec";
+  "https://script.google.com/macros/s/AKfycbzv30pBsm6Og3DysfBaEuJG8THzl7udb9qcHyCms-024qBbkBIEzktIY0lROwwyoI8/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
   let activePopup = null;
 
-  // Attach click listener to every image popup button
   document.querySelectorAll(".img-popup-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const imgSrc = btn.getAttribute("data-img");
       const accent = btn.getAttribute("data-accent");
       const name = btn.textContent.trim();
 
-      // Log click to Google Sheet
       logClick(name);
 
-      // Handle popup visibility
       if (activePopup && activePopup.dataset.img === imgSrc) {
         activePopup.classList.remove("show");
         setTimeout(() => {
@@ -37,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Function to create and show the popup
   function openPopup(btn, imgSrc, accent) {
     const popup = document.createElement("div");
     popup.className = "image-popup";
@@ -50,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
-    // Border color using CSS accent variable
     const accentColor = getComputedStyle(document.documentElement)
       .getPropertyValue(`--${accent}`)
       .trim();
@@ -77,7 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
       activePopup = popup;
     });
 
-    // Clicking the popup closes it
     popup.addEventListener("click", () => {
       popup.classList.remove("show");
       setTimeout(() => {
@@ -87,7 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Function to log clicks to Google Sheets
   function logClick(name) {
     fetch(SCRIPT_URL, {
       method: "POST",

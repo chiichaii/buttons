@@ -50,7 +50,7 @@ html[color-mode="dark"] body {
 }
 
 /* ====================
-TEXT CONTAINER
+CONTAINER
 ==================== */
 .content-wrapper {
   display: block;
@@ -194,7 +194,6 @@ BUTTON
   border-radius: 6px;
 }
 
-/* button hover */
 .btn-accent1:hover::after,
 .btn-accent2:hover::after,
 .btn-accent3:hover::after,
@@ -337,9 +336,6 @@ html[color-mode="dark"] .float {
   }
 }
 
-/* ====================
- BUTTON GROUPING 
- ==================== */
 .button-group {
   display: flex;
   flex-wrap: wrap;

@@ -52,17 +52,11 @@
   color: inherit;
 }
 
-/* ====================
-TEXT STYLES / FONT CLASSES
-==================== */
 .sans-serif {
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
 }
 
-/* ====================
-ROUNDED ELEMENTS
-==================== */
 .rounded {
   --border-radius: 60px;
   border-radius: var(--border-radius);
@@ -99,7 +93,6 @@ HIGHLIGHT
   background: rgba(var(--accent3), 0.3);
 }
 
-/* hover highlight */
 .hl:hover::before {
   opacity: 0.7;
   filter: saturate(0.7);
