@@ -526,3 +526,125 @@ MOBILE HOVER/CLICK POPUP BOX
   visibility: visible;
   transition: opacity 0.3s ease, visibility 0s linear 0s;
 }
+
+/* ====================
+RESPONSIVE BUTTON GROUP FIX
+==================== */
+
+@media (max-width: 900px) {
+  .button-group {
+    gap: 4px;
+    margin: -20px;
+  }
+  .button-group .btn {
+    font-size: 12px !important;
+    padding: 6px 10px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .button-group {
+    gap: 3px;
+    margin: -15px;
+  }
+  .button-group .btn {
+    font-size: 10px !important;
+    padding: 4px 7px !important;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 400px) {
+  .button-group {
+    gap: 2px;
+    margin: -10px;
+  }
+  .button-group .btn {
+    font-size: 10px !important;
+    padding: 4px 7px !important;
+    border-radius: 7px;
+  }
+}
+
+/* ====================
+RESPONSIVE BORDER PADDING
+==================== */
+@media (max-width: 900px) {
+  .text-container {
+    padding: 40px 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .text-container {
+    padding: 25px 35px;
+  }
+}
+
+@media (max-width: 400px) {
+  .text-container {
+    padding: 15px 25px;
+  }
+}
+
+/* ====================
+RESPONSIVE TEXT CONTAINER PADDING
+==================== */
+@media (max-width: 900px) {
+  .text-container {
+    margin: 40px auto;
+    padding: 35px 45px;
+  }
+}
+
+@media (max-width: 600px) {
+  .text-container {
+    margin: 20px auto;
+    padding: 20px 25px;
+  }
+}
+
+@media (max-width: 400px) {
+  .text-container {
+    margin: 10px auto;
+    padding: 15px 20px;
+  }
+}
+
+/* ====================
+RESPONSIVE CONTENT WRAPPER PADDING
+==================== */
+@media (max-width: 900px) {
+  .content-wrapper {
+    padding: 10% 0% 0 0%;
+  }
+}
+
+@media (max-width: 600px) {
+  .content-wrapper {
+    padding: 10% 0% 0 0%;
+  }
+}
+
+@media (max-width: 400px) {
+  .content-wrapper {
+    padding: 10% 0% 0 0%;
+  }
+}
+
+/* ====================
+RESPONSIVE BODY PADDING
+==================== */
+@media (max-width: 600px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}
