@@ -58,7 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(() => {
       const btnRect = btn.getBoundingClientRect();
       const popupRect = popup.getBoundingClientRect();
-      const offset = 30;
+      let offset = 30;
+      if (btn.classList.contains("float")) {
+        offset = 45;
+      }
 
       // Position popup slightly above the button
       const top = window.scrollY + btnRect.top - popupRect.height - offset;
@@ -97,5 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(`✅ Logged click for "${name}"`);
       })
       .catch((err) => console.error("⚠️ Logging failed:", err));
+
+    document.querySelectorAll(".hover-popup-btn").forEach((btn) => {
+      btn.addEventListener("touchstart", () => {
+        btn.classList.toggle("show-hover");
+      });
+    });
   }
 });

@@ -506,3 +506,23 @@ IMAGE POPUP BOX
   opacity: 0;
   transform: translateY(10px);
 }
+
+/* ====================
+MOBILE HOVER/CLICK POPUP BOX
+==================== */
+.hover-popup-btn.show-hover .hover-popup {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-content {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.popup:hover .popup-content {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0s linear 0s;
+}
