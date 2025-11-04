@@ -60,7 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const popupRect = popup.getBoundingClientRect();
       let offset = 30;
       if (btn.classList.contains("float")) {
-        offset = 45;
+        offset = 35;
+      }
+      if (btn.classList.contains("btn-transparent")) {
+        offset = 5;
       }
 
       // Position popup slightly above the button
