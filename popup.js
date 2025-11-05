@@ -1,9 +1,15 @@
 const SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbzv30pBsm6Og3DysfBaEuJG8THzl7udb9qcHyCms-024qBbkBIEzktIY0lROwwyoI8/exec";
 
+/* ========================================
+   MAIN EVENT LISTENER
+======================================== */
 document.addEventListener("DOMContentLoaded", () => {
-  let activePopup = null;
+  let activePopup = null; // track active popup
 
+  /* ========================================
+     IMAGE POPUP BUTTONS
+  ======================================== */
   document.querySelectorAll(".img-popup-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const imgSrc = btn.getAttribute("data-img");
@@ -12,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       logClick(name);
 
+      // close popup when x2 clicked
       if (activePopup && activePopup.dataset.img === imgSrc) {
         activePopup.classList.remove("show");
         setTimeout(() => {
@@ -21,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      // close old popup for new popup
       if (activePopup) {
         activePopup.classList.remove("show");
         setTimeout(() => {
@@ -34,6 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /* ========================================
+     POPUP IMAGE
+  ======================================== */
   function openPopup(btn, imgSrc, accent) {
     const popup = document.createElement("div");
     popup.className = "image-popup";
@@ -46,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
+    // matching border
     const accentColor = getComputedStyle(document.documentElement)
       .getPropertyValue(`--${accent}`)
       .trim();
@@ -55,18 +67,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.appendChild(popup);
 
+    // popup positions above button
     requestAnimationFrame(() => {
       const btnRect = btn.getBoundingClientRect();
       const popupRect = popup.getBoundingClientRect();
-      let offset = 30;
-      if (btn.classList.contains("float")) {
-        offset = 35;
-      }
-      if (btn.classList.contains("btn-transparent")) {
-        offset = 5;
-      }
 
-      // Position popup slightly above the button
+      // popup positions based on button
+      let offset = 30;
+      if (btn.classList.contains("float")) offset = 35;
+      if (btn.classList.contains("btn-transparent")) offset = 5;
+
       const top = window.scrollY + btnRect.top - popupRect.height - offset;
       const left =
         window.scrollX + btnRect.left + btnRect.width / 2 - popupRect.width / 2;
@@ -78,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
       activePopup = popup;
     });
 
+    // close popup
     popup.addEventListener("click", () => {
       popup.classList.remove("show");
       setTimeout(() => {
@@ -87,6 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* ========================================
+     CLICK EFFECT
+  ======================================== */
   function logClick(name) {
     fetch(SCRIPT_URL, {
       method: "POST",
@@ -104,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((err) => console.error("⚠️ Logging failed:", err));
 
+    // hover for touch screens
     document.querySelectorAll(".hover-popup-btn").forEach((btn) => {
       btn.addEventListener("touchstart", () => {
         btn.classList.toggle("show-hover");

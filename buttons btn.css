@@ -9,9 +9,9 @@
   --sans-serif: "Montserrat", sans-serif;
 }
 
-/* ====================
+/* ========================================
 BODY
-====================*/
+========================================*/
 body {
   color: var(--text);
   transition: background 0.3s, color 0.3s;
@@ -49,14 +49,15 @@ html[color-mode="dark"] body {
   color: var(--text);
 }
 
-/* ====================
+/* ========================================
 CONTAINER
-==================== */
+======================================== */
 .content-wrapper {
   display: block;
   margin: 0 auto;
   padding: 10% 3% 0% 3%;
 }
+
 .text-container {
   position: relative;
   margin-bottom: 40px;
@@ -72,13 +73,14 @@ CONTAINER
   border: 1px solid var(--bor);
   white-space: pre-line;
 }
+
 .text-container br {
   display: none;
 }
 
-/* ====================
+/* ========================================
 BUTTON
-==================== */
+======================================== */
 .btn {
   font-family: inherit;
   font-size: 11px;
@@ -202,9 +204,9 @@ BUTTON
   transform: translateX(-50%) scale(1);
 }
 
-/* ====================
+/* ========================================
 BUTTON FLOAT
-==================== */
+======================================== */
 @keyframes gentle-float {
   0%,
   100% {
@@ -242,15 +244,16 @@ BUTTON FLOAT
     background-color 0.25s ease;
   will-change: transform, box-shadow, background-color;
 }
+
 .btn.float:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
   filter: brightness(1.15);
 }
 
-/* ====================
+/* ========================================
 BUTTON NO BORDER 
-==================== */
+======================================== */
 .btn.noborder {
   border: none;
   outline: none;
@@ -264,20 +267,22 @@ BUTTON NO BORDER
   filter: none !important;
   transform: none !important;
 }
+
 .btn.noborder img {
   height: 70px;
   width: auto;
   display: block;
 }
+
 .btn.noborder:hover {
   filter: none !important;
   transform: none !important;
   box-shadow: none !important;
 }
 
-/* ====================
+/* ========================================
 DARK MODE BUTTONS
-==================== */
+======================================== */
 html[color-mode="dark"] {
   --text: #fff;
   --text-invert: #000;
@@ -302,6 +307,7 @@ html[color-mode="dark"] .btn-accent2 {
 html[color-mode="dark"] .btn-accent3 {
   background: rgba(var(--accent3), 0.5);
 }
+
 html[color-mode="dark"] .btn-gradient {
   background: linear-gradient(
     90deg,
@@ -313,15 +319,18 @@ html[color-mode="dark"] .btn-gradient {
     rgb(var(--accent3), 0.5) 100%
   );
 }
+
 html[color-mode="dark"] .btn::after {
   background: #222;
   color: var(--text);
   border-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
 }
+
 html[color-mode="dark"] .float {
   animation: gentle-float-dark 4s ease-in-out infinite;
 }
+
 @keyframes gentle-float-dark {
   0%,
   100% {
@@ -345,15 +354,16 @@ html[color-mode="dark"] .float {
   margin: -35px;
 }
 
-/* ====================
+/* ========================================
 TW/PT BUTTONS
-==================== */
+======================================== */
 .partner-tag-wrapper,
 .trigger-warning-wrapper {
   position: relative;
   display: inline-block;
   z-index: 10;
 }
+
 .partner-tag-wrapper::before,
 .trigger-warning-wrapper::before {
   content: "";
@@ -364,6 +374,7 @@ TW/PT BUTTONS
   z-index: 0;
   pointer-events: none;
 }
+
 .partner-tag-wrapper .btn,
 .trigger-warning-wrapper .btn {
   position: relative;
@@ -380,14 +391,17 @@ TW/PT BUTTONS
   overflow: visible;
   transition: filter 0.22s ease, background 0.22s ease;
 }
+
 .partner-tag-wrapper .btn.noborder {
   position: absolute;
   top: -30px;
   left: -50px;
 }
+
 .partner-tag-wrapper .btn::after {
   display: none !important;
 }
+
 .trigger-warning-wrapper .btn:hover,
 .partner-tag-wrapper .btn:hover {
   filter: brightness(1.2);
@@ -417,6 +431,7 @@ TW/PT BUTTONS
     transform: translateY(-12px);
   }
 }
+
 .floating-meta .btn.float {
   animation: tw-pt-float 4s ease-in-out infinite;
   box-shadow: none !important;
@@ -438,9 +453,9 @@ body[color-mode="dark"] .trigger-warning-wrapper .btn::after {
   box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
 }
 
-/* ====================
+/* ========================================
 CUSTOM BLOCKQUOTE
-==================== */
+======================================== */
 .custom-bq {
   display: block;
   padding: 0 10% 0 5%;
@@ -450,6 +465,7 @@ CUSTOM BLOCKQUOTE
   background: transparent;
   border-left: 1px solid rgb(var(--accent2), 0.5);
 }
+
 .custom-bq[data-line="accent1"] {
   border-left-color: rgb(var(--accent1), 0.5);
 }
@@ -460,9 +476,9 @@ CUSTOM BLOCKQUOTE
   border-left-color: rgb(var(--accent3), 0.5);
 }
 
-/* ====================
+/* ========================================
 IMAGE POPUP BOX
-==================== */
+======================================== */
 .image-popup {
   position: absolute;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -507,9 +523,9 @@ IMAGE POPUP BOX
   transform: translateY(10px);
 }
 
-/* ====================
+/* ========================================
 MOBILE HOVER/CLICK POPUP BOX
-==================== */
+======================================== */
 .hover-popup-btn.show-hover .hover-popup {
   opacity: 1;
   visibility: visible;
@@ -527,10 +543,9 @@ MOBILE HOVER/CLICK POPUP BOX
   transition: opacity 0.3s ease, visibility 0s linear 0s;
 }
 
-/* ====================
-RESPONSIVE BUTTON GROUP FIX
-==================== */
-
+/* ========================================
+RESPONSIVE BUTTON
+======================================== */
 @media (max-width: 900px) {
   .button-group {
     gap: 4px;
@@ -548,8 +563,8 @@ RESPONSIVE BUTTON GROUP FIX
     margin: -15px;
   }
   .button-group .btn {
-    font-size: 10px !important;
-    padding: 4px 7px !important;
+    font-size: 11px !important;
+    padding: 6px 10px !important;
     border-radius: 6px;
   }
 }
@@ -561,14 +576,14 @@ RESPONSIVE BUTTON GROUP FIX
   }
   .button-group .btn {
     font-size: 10px !important;
-    padding: 4px 7px !important;
+    padding: 5px 8px !important;
     border-radius: 7px;
   }
 }
 
-/* ====================
+/* ========================================
 RESPONSIVE BORDER PADDING
-==================== */
+======================================== */
 @media (max-width: 900px) {
   .text-container {
     padding: 40px 50px;
@@ -587,9 +602,9 @@ RESPONSIVE BORDER PADDING
   }
 }
 
-/* ====================
+/* ========================================
 RESPONSIVE TEXT CONTAINER PADDING
-==================== */
+======================================== */
 @media (max-width: 900px) {
   .text-container {
     margin: 40px auto;
@@ -611,9 +626,9 @@ RESPONSIVE TEXT CONTAINER PADDING
   }
 }
 
-/* ====================
+/* ========================================
 RESPONSIVE CONTENT WRAPPER PADDING
-==================== */
+======================================== */
 @media (max-width: 900px) {
   .content-wrapper {
     padding: 10% 0% 0 0%;
@@ -632,9 +647,9 @@ RESPONSIVE CONTENT WRAPPER PADDING
   }
 }
 
-/* ====================
+/* ========================================
 RESPONSIVE BODY PADDING
-==================== */
+======================================== */
 @media (max-width: 600px) {
   body {
     margin: 0;
