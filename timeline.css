@@ -198,3 +198,27 @@
   left: 0;
   transform: translateX(20px);
 }
+
+/* ========================================
+   BULLSEYE HOVER LIGHT
+======================================== */
+.timeline-item[data-border="accent1"]:has(.btn:hover) .timeline-bullseye,
+.timeline-item[data-border="accent1"] .btn:hover + .timeline-bullseye {
+  background: rgba(var(--accent1), 1);
+  box-shadow: 0 0 8px 3px rgba(var(--accent1), 0.6);
+  filter: brightness(1.2);
+}
+
+.timeline-item[data-border="accent2"]:has(.btn:hover) .timeline-bullseye,
+.timeline-item[data-border="accent2"] .btn:hover + .timeline-bullseye {
+  background: rgba(var(--accent2), 1);
+  box-shadow: 0 0 8px 3px rgba(var(--accent2), 0.6);
+  filter: brightness(1.2);
+}
+
+.timeline-item[data-border="accent3"]:has(.btn:hover) .timeline-bullseye,
+.timeline-item[data-border="accent3"] .btn:hover + .timeline-bullseye {
+  background: rgba(var(--accent3), 1);
+  box-shadow: 0 0 8px 3px rgba(var(--accent3), 0.6);
+  filter: brightness(1.2);
+}
