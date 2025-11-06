@@ -10,7 +10,7 @@
 }
 
 /* ========================================
-BODY
+    BODY
 ========================================*/
 body {
   color: var(--text);
@@ -50,7 +50,7 @@ html[color-mode="dark"] body {
 }
 
 /* ========================================
-CONTAINER
+    CONTAINER
 ======================================== */
 .content-wrapper {
   display: block;
@@ -79,7 +79,7 @@ CONTAINER
 }
 
 /* ========================================
-BUTTON
+    BUTTON
 ======================================== */
 .btn {
   font-family: inherit;
@@ -205,7 +205,7 @@ BUTTON
 }
 
 /* ========================================
-BUTTON FLOAT
+    BUTTON FLOAT
 ======================================== */
 @keyframes gentle-float {
   0%,
@@ -252,7 +252,7 @@ BUTTON FLOAT
 }
 
 /* ========================================
-BUTTON NO BORDER 
+    BUTTON NO BORDER 
 ======================================== */
 .btn.noborder {
   border: none;
@@ -281,7 +281,7 @@ BUTTON NO BORDER
 }
 
 /* ========================================
-DARK MODE BUTTONS
+    DARK MODE BUTTONS
 ======================================== */
 html[color-mode="dark"] {
   --text: #fff;
@@ -355,7 +355,7 @@ html[color-mode="dark"] .float {
 }
 
 /* ========================================
-TW/PT BUTTONS
+    TW/PT BUTTONS
 ======================================== */
 .partner-tag-wrapper,
 .trigger-warning-wrapper {
@@ -454,7 +454,7 @@ body[color-mode="dark"] .trigger-warning-wrapper .btn::after {
 }
 
 /* ========================================
-CUSTOM BLOCKQUOTE
+    CUSTOM BLOCKQUOTE
 ======================================== */
 .custom-bq {
   display: block;
@@ -477,7 +477,7 @@ CUSTOM BLOCKQUOTE
 }
 
 /* ========================================
-IMAGE POPUP BOX
+    IMAGE POPUP BOX
 ======================================== */
 .image-popup {
   position: absolute;
@@ -524,7 +524,7 @@ IMAGE POPUP BOX
 }
 
 /* ========================================
-MOBILE HOVER/CLICK POPUP BOX
+    MOBILE HOVER/CLICK POPUP BOX
 ======================================== */
 .hover-popup-btn.show-hover .hover-popup {
   opacity: 1;
@@ -544,7 +544,7 @@ MOBILE HOVER/CLICK POPUP BOX
 }
 
 /* ========================================
-RESPONSIVE BUTTON
+    RESPONSIVE BUTTON
 ======================================== */
 @media (max-width: 900px) {
   .button-group {
@@ -582,7 +582,7 @@ RESPONSIVE BUTTON
 }
 
 /* ========================================
-RESPONSIVE BORDER PADDING
+    RESPONSIVE BORDER PADDING
 ======================================== */
 @media (max-width: 900px) {
   .text-container {
@@ -603,7 +603,7 @@ RESPONSIVE BORDER PADDING
 }
 
 /* ========================================
-RESPONSIVE TEXT CONTAINER PADDING
+    RESPONSIVE TEXT CONTAINER PADDING
 ======================================== */
 @media (max-width: 900px) {
   .text-container {
@@ -627,7 +627,7 @@ RESPONSIVE TEXT CONTAINER PADDING
 }
 
 /* ========================================
-RESPONSIVE CONTENT WRAPPER PADDING
+    RESPONSIVE CONTENT WRAPPER PADDING
 ======================================== */
 @media (max-width: 900px) {
   .content-wrapper {
@@ -648,7 +648,7 @@ RESPONSIVE CONTENT WRAPPER PADDING
 }
 
 /* ========================================
-RESPONSIVE BODY PADDING
+    RESPONSIVE BODY PADDING
 ======================================== */
 @media (max-width: 600px) {
   body {
