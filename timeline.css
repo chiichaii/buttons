@@ -16,14 +16,13 @@
 ======================================== */
 .timeline-wrapper {
   position: relative;
-  width: 700px; /* fixed width, no flexing */
+  width: 700px;
   margin: 80px auto;
   padding: 10px 10px;
   color: var(--text);
   overflow: visible;
 }
 
-/* vertical center line */
 .timeline-wrapper::before {
   content: "";
   position: absolute;
@@ -41,11 +40,10 @@
 ======================================== */
 .timeline-item {
   position: relative;
-  width: 350px; /* fixed box width */
-  margin: 100px 0; /* vertical spacing between entries */
+  width: 350px;
+  margin: 100px 0;
 }
 
-/* Left and right placement */
 .timeline-item.left {
   text-align: right;
   margin-right: auto;
@@ -61,8 +59,6 @@
 /* ========================================
    CONNECTORS & BULLEYES
 ======================================== */
-
-/* Connector line */
 .timeline-connector {
   position: absolute;
   top: 50%;
@@ -73,7 +69,6 @@
   transform: translateY(-50%);
 }
 
-/* bullseye */
 .timeline-bullseye {
   position: absolute;
   top: 50%;
@@ -84,9 +79,9 @@
   background: rgba(var(--accent1), 0.8);
   transform: translateY(-50%);
   z-index: 2;
+  animation: bullseye-pulse 2.5s ease-in-out infinite;
 }
 
-/* inner dot */
 .timeline-bullseye::after {
   content: "";
   position: absolute;
@@ -99,7 +94,6 @@
   transform: translate(-50%, -50%);
 }
 
-/* accent colors */
 .timeline-item[data-border="accent1"] .timeline-connector,
 .timeline-item[data-border="accent1"] .timeline-bullseye {
   color: rgba(var(--accent1), 0.5);
@@ -200,25 +194,64 @@
 }
 
 /* ========================================
-   BULLSEYE HOVER LIGHT
+   BULLSEYE GLOW
 ======================================== */
-.timeline-item[data-border="accent1"]:has(.btn:hover) .timeline-bullseye,
-.timeline-item[data-border="accent1"] .btn:hover + .timeline-bullseye {
-  background: rgba(var(--accent1), 1);
-  box-shadow: 0 0 8px 3px rgba(var(--accent1), 0.6);
-  filter: brightness(1.2);
+.timeline-item[data-border="accent1"] .timeline-bullseye {
+  box-shadow: 0 0 8px 4px rgba(var(--accent1), 0.4);
 }
 
-.timeline-item[data-border="accent2"]:has(.btn:hover) .timeline-bullseye,
-.timeline-item[data-border="accent2"] .btn:hover + .timeline-bullseye {
-  background: rgba(var(--accent2), 1);
-  box-shadow: 0 0 8px 3px rgba(var(--accent2), 0.6);
-  filter: brightness(1.2);
+.timeline-item[data-border="accent2"] .timeline-bullseye {
+  box-shadow: 0 0 8px 4px rgba(var(--accent2), 0.4);
 }
 
-.timeline-item[data-border="accent3"]:has(.btn:hover) .timeline-bullseye,
-.timeline-item[data-border="accent3"] .btn:hover + .timeline-bullseye {
-  background: rgba(var(--accent3), 1);
-  box-shadow: 0 0 8px 3px rgba(var(--accent3), 0.6);
-  filter: brightness(1.2);
+.timeline-item[data-border="accent3"] .timeline-bullseye {
+  box-shadow: 0 0 8px 4px rgba(var(--accent3), 0.4);
+}
+
+/* ========================================
+   BULLSEYE PULSE
+======================================== */
+.timeline-item[data-border="accent1"]:has(.btn:hover) .timeline-bullseye {
+  animation: accent1-glow 2s ease-in-out infinite;
+}
+
+.timeline-item[data-border="accent2"]:has(.btn:hover) .timeline-bullseye {
+  animation: accent2-glow 2s ease-in-out infinite;
+}
+
+.timeline-item[data-border="accent3"]:has(.btn:hover) .timeline-bullseye {
+  animation: accent3-glow 2s ease-in-out infinite;
+}
+
+/* ----------------------------------------
+   Keyframes for Each Accent
+---------------------------------------- */
+@keyframes accent1-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 8px 4px rgba(var(--accent1), 0.4);
+  }
+  50% {
+    box-shadow: 0 0 12px 4px rgba(var(--accent1), 0.9);
+  }
+}
+
+@keyframes accent2-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 8px 4px rgba(var(--accent2), 0.4);
+  }
+  50% {
+    box-shadow: 0 0 12px 4px rgba(var(--accent2), 0.9);
+  }
+}
+
+@keyframes accent3-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 8px 4px rgba(var(--accent3), 0.4);
+  }
+  50% {
+    box-shadow: 0 0 12px 4px rgba(var(--accent3), 0.9);
+  }
 }
