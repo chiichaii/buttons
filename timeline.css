@@ -232,7 +232,7 @@
     box-shadow: 0 0 8px 4px rgba(var(--accent1), 0.4);
   }
   50% {
-    box-shadow: 0 0 12px 4px rgba(var(--accent1), 0.9);
+    box-shadow: 0 0 10px 4px rgba(var(--accent1), 0.9);
   }
 }
 
@@ -242,7 +242,7 @@
     box-shadow: 0 0 8px 4px rgba(var(--accent2), 0.4);
   }
   50% {
-    box-shadow: 0 0 12px 4px rgba(var(--accent2), 0.9);
+    box-shadow: 0 0 10px 4px rgba(var(--accent2), 0.9);
   }
 }
 
@@ -252,6 +252,6 @@
     box-shadow: 0 0 8px 4px rgba(var(--accent3), 0.4);
   }
   50% {
-    box-shadow: 0 0 12px 4px rgba(var(--accent3), 0.9);
+    box-shadow: 0 0 10px 4px rgba(var(--accent3), 0.9);
   }
 }
